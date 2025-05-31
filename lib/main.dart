@@ -1,11 +1,36 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:git_app/tudo_list_app/screens/home.dart';
-import 'package:git_app/tudo_list_app/screens/home.streams.dart';
+import 'package:git_app/IsolatesApp/Screns/counter_vogais.dart';
+import 'package:git_app/IsolatesApp/Screns/isolates.dart';
+import 'package:git_app/IsolatesApp/Screns/isolates2.dart';
+import 'package:git_app/Streams/stream_example.dart';
+import 'package:git_app/Streams/stream_example2.dart';
+import 'package:git_app/app/do_it_app/home_do_it_app.dart';
+import 'package:git_app/app/do_it_app/models/task_model_do_it.dart';
+import 'package:git_app/app_login/views/login_page.dart';
+import 'package:git_app/flutter_curso_avancado/Views/stream_state_view.dart';
+import 'package:git_app/flutter_curso_avancado/Views/stream_state_view2.dart';
+import 'package:git_app/flutter_curso_avancado/controllers/change_notifier.dart';
+import 'package:git_app/flutter_curso_avancado/controllers/value_notifier_controller.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
-  runApp(ProviderScope(child: MyApp()));
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print("🔹 Mensagem recebida em background: ${message.notification?.title}");
 }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskStatusAdapter());
+  Hive.registerAdapter(TaskModelDoItAdapter());
+  await Hive.openBox<TaskModelDoIt>('tasks');
+  runApp(MyApp());
+}
+
+ChangeNotifierController themeDataController = ChangeNotifierController();
+ValueNotifierController themeDataController2 = ValueNotifierController();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,27 +38,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: HomeStrems(),
+    return ValueListenableBuilder(
+      valueListenable: themeDataController2,
+      builder: (context, value, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme:
+              themeDataController2.value ? ThemeData.dark() : ThemeData.light(),
+          home: Stream, //HomeViewMixinsState2(), //HomeCounterState(),
+        );
+      },
     );
   }
 }

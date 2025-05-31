@@ -1,0 +1,2 @@
+{"flutter":{"platforms":
+{"android":{"default":{"projectId":"fir-notifications-84504","appId":"1:63294384473:android:ae172faeca68135adb4448","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"fir-notifications-84504","configurations":{"android":"1:63294384473:android:ae172faeca68135adb4448","web":"1:63294384473:web:c7a608151895d27fdb4448"}}}}}}

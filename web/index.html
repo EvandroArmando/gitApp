@@ -31,8 +31,21 @@
 
   <title>git_app</title>
   <link rel="manifest" href="manifest.json">
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging.js"></script>
+
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+    <!-- ...other html setup. -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      });
+    }
+  </script>
+  <!-- ...put the script at the bottom of the enclosing body tags. -->
+</body>
 </body>
 </html>
