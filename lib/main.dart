@@ -1,10 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:git_app/IsolatesApp/Screns/counter_vogais.dart';
-import 'package:git_app/IsolatesApp/Screns/isolates.dart';
-import 'package:git_app/IsolatesApp/Screns/isolates2.dart';
-import 'package:git_app/Streams/stream_example.dart';
-import 'package:git_app/Streams/stream_example2.dart';
 import 'package:git_app/app/do_it_app/home_do_it_app.dart';
 import 'package:git_app/app/do_it_app/models/task_model_do_it.dart';
 import 'package:git_app/app_login/views/login_page.dart';
@@ -46,7 +41,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme:
               themeDataController2.value ? ThemeData.dark() : ThemeData.light(),
-          home: Stream, //HomeViewMixinsState2(), //HomeCounterState(),
+          home:
+              StreamStateView2(), //HomeViewMixinsState2(), //HomeCounterState(),
         );
       },
     );
