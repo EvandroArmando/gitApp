@@ -16,7 +16,6 @@ class HomeDoItApp extends StatefulWidget {
 
 class _HomeDoItAppState extends State<HomeDoItApp> {
   TaskRepositoryDoIt taskRepositoryDoIt = TaskRepositoryDoIt();
-
   @override
   void initState() {
     super.initState();
@@ -29,19 +28,15 @@ class _HomeDoItAppState extends State<HomeDoItApp> {
       taskRepositoryDoIt.loadTasks();
     });
   }
-
   @override
   void dispose() {
     taskRepositoryDoIt.removeListener(callback);
     super.dispose();
-
     super.dispose();
   }
-
   callback() {
     setState(() {});
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

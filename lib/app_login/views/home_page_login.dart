@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_app/app_login/views/settings_page.dart';
 
 class HomePageLogin extends StatefulWidget {
   const HomePageLogin({Key? key}) : super(key: key);
@@ -10,14 +11,19 @@ class HomePageLogin extends StatefulWidget {
 class _HomePageLoginState extends State<HomePageLogin> {
   int current_index = 0;
 
+  final List<Widget> _screens = const [
+    Text('Conteudo Principal'),
+    SettingsPageLogin(),
+    Text('data'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
         child: ListView(children: [ListTile(leading: Text('data'))]),
       ),
-      appBar: AppBar(centerTitle: true, title: const Text('Pagina Inicial')),
-      body: Container(),
+      body: _screens[current_index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: current_index,
         selectedItemColor: Colors.red,

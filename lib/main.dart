@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:git_app/app/do_it_app/home_do_it_app.dart';
 import 'package:git_app/app/do_it_app/models/task_model_do_it.dart';
+import 'package:git_app/app_login/repository/user_repository.dart';
 import 'package:git_app/app_login/views/login_page.dart';
 import 'package:git_app/flutter_curso_avancado/Views/stream_state_view.dart';
 import 'package:git_app/flutter_curso_avancado/Views/stream_state_view2.dart';
@@ -26,6 +27,7 @@ void main() async {
 
 ChangeNotifierController themeDataController = ChangeNotifierController();
 ValueNotifierController themeDataController2 = ValueNotifierController();
+UserRepository userRepository = UserRepository();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
           theme:
               themeDataController2.value ? ThemeData.dark() : ThemeData.light(),
           home:
-              StreamStateView2(), //HomeViewMixinsState2(), //HomeCounterState(),
+              LoginPage(), //HomeViewMixinsState2(), //HomeCounterState(),
         );
       },
     );

@@ -4,8 +4,10 @@ class UserModel {
   String? endereco;
   String? email;
   bool? isAdmin;
+  String? image;
 
   UserModel({
+    this.image = '',
     this.name,
     this.password,
     this.endereco,
