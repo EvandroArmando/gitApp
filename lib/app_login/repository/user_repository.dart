@@ -12,6 +12,7 @@ class UserRepository extends ObserverLogin<BaseState> {
   }
 
   List<void Function()> listF = [];
+
   UsersDb db = UsersDb();
   ValueNotifier<String> imagem = ValueNotifier('');
   late UserModel users;
@@ -27,7 +28,6 @@ class UserRepository extends ObserverLogin<BaseState> {
   Future<bool> login({required String name, required String password}) async {
     state = LoadingState();
     notifyCallback();
-
     debugPrint('email: ${users.email}, password: ${users.password}');
     return await Future.delayed(Duration(seconds: 9), () {
       if (name == users.email && password == users.password) {

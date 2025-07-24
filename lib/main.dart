@@ -1,13 +1,14 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:git_app/app/do_it_app/home_do_it_app.dart';
 import 'package:git_app/app/do_it_app/models/task_model_do_it.dart';
 import 'package:git_app/app_login/repository/user_repository.dart';
-import 'package:git_app/app_login/views/login_page.dart';
-import 'package:git_app/flutter_curso_avancado/Views/stream_state_view.dart';
-import 'package:git_app/flutter_curso_avancado/Views/stream_state_view2.dart';
 import 'package:git_app/flutter_curso_avancado/controllers/change_notifier.dart';
 import 'package:git_app/flutter_curso_avancado/controllers/value_notifier_controller.dart';
+import 'package:git_app/splash_app/SegmentedContentScreen.dart';
+import 'package:git_app/splash_app/home_splash.dart.dart';
+import 'package:git_app/ui_mastery/routes/route.dart';
+import 'package:git_app/ui_mastery/ui/export_ui.dart';
+import 'package:git_app/ui_mastery/ui/mastery_login.dart.dart';
 import 'package:hive_flutter/adapters.dart';
 
 @pragma('vm:entry-point')
@@ -31,7 +32,6 @@ UserRepository userRepository = UserRepository();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -41,10 +41,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme:
-              themeDataController2.value ? ThemeData.dark() : ThemeData.light(),
-          home:
-              LoginPage(), //HomeViewMixinsState2(), //HomeCounterState(),
+          theme:themeDataController2.value ? ThemeData.dark() : ThemeData.light(),
+          home: rotas["/todo_scren_home"]!(context),
+        //MasteryLoginDart(), //SegmentedContentScreenSplashDart(),
+          //LoginPage(), //HomeViewMixinsState2(), //HomeCounterState(),
+          routes: rotas,
         );
       },
     );
