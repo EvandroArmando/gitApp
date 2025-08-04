@@ -26,7 +26,6 @@ class TodoViewModel extends ChangeNotifier {
       case Ok<List<Todo>>():
         _todos = result.value;
         notifyListeners();
-
         break;
       case Error():
       //implementar o loging

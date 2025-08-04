@@ -4,7 +4,6 @@ import 'package:git_app/mvvm/domain/models/todo.dart';
 
 class TodosRepositoryDev implements TodosRepository {
   List<Todo> _todos = [];
-
   @override
   Future<Result<Todo>> add(String name) async {
     final lastIndex = _todos.length;
