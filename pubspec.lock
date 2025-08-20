@@ -400,14 +400,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  freezed:
-    dependency: "direct main"
-    description:
-      name: freezed
-      sha256: "4179d41127bc7a67dc3f58ceec1d22f1cdf10470653cb86eda2a63f81b4920c7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -572,18 +564,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_annotation
-      sha256: "3520fa844009431b5d4491a5a778603520cdc399ab3406332dcc50f93547258c"
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
       url: "https://pub.dev"
     source: hosted
-    version: "4.7.0"
-  json_serializable:
-    dependency: "direct dev"
-    description:
-      name: json_serializable
-      sha256: f3c2c18a7889580f71926f30c1937727c8c7d4f3a435f8f5e8b0ddd25253ef5d
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.5.4"
+    version: "4.9.0"
   leak_tracker:
     dependency: transitive
     description:
